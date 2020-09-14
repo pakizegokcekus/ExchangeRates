@@ -1,0 +1,10 @@
+C:\Users\pakiz\source\repos\ExchangeRates\ExchangeRates\bin\Debug\ExchangeRates.exe.config
+C:\Users\pakiz\source\repos\ExchangeRates\ExchangeRates\bin\Debug\ExchangeRates.exe
+C:\Users\pakiz\source\repos\ExchangeRates\ExchangeRates\bin\Debug\ExchangeRates.pdb
+C:\Users\pakiz\source\repos\ExchangeRates\ExchangeRates\obj\Debug\ExchangeRates.csprojAssemblyReference.cache
+C:\Users\pakiz\source\repos\ExchangeRates\ExchangeRates\obj\Debug\ExchangeRates.Properties.Resources.resources
+C:\Users\pakiz\source\repos\ExchangeRates\ExchangeRates\obj\Debug\ExchangeRates.csproj.GenerateResource.cache
+C:\Users\pakiz\source\repos\ExchangeRates\ExchangeRates\obj\Debug\ExchangeRates.csproj.CoreCompileInputs.cache
+C:\Users\pakiz\source\repos\ExchangeRates\ExchangeRates\obj\Debug\ExchangeRates.exe
+C:\Users\pakiz\source\repos\ExchangeRates\ExchangeRates\obj\Debug\ExchangeRates.pdb
+C:\Users\pakiz\source\repos\ExchangeRates\ExchangeRates\obj\Debug\ExchangeRates.FrmExchangeRates.resources
