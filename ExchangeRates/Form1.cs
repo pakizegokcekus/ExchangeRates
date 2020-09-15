@@ -21,25 +21,18 @@ namespace ExchangeRates
         }
 
         private void Form1_Load(object sender, System.EventArgs e)
-        {
-            RefreshCheck();
+        { TableCreate();
             dataGridView1.DataSource = Source();
+            RefreshCheck();
         }
+        DataTable dt = new DataTable();
+        DataRow dr;
         public DataTable Source()
         {
             try
             {
-                DataTable dt = new DataTable();
-                DataRow dr;
-                // DataTable ın satırlarını tanımlıyoruz.
-                dt.Columns.Add(new DataColumn("Adı", typeof(string)));
-                dt.Columns.Add(new DataColumn("Kod", typeof(string)));
-                dt.Columns.Add(new DataColumn("Döviz alış", typeof(string)));
-                dt.Columns.Add(new DataColumn("Döviz satış", typeof(string)));
-                dt.Columns.Add(new DataColumn("Efektif alış", typeof(string)));
-                dt.Columns.Add(new DataColumn("Efektif Satış", typeof(string)));
-
-                XmlTextReader rdr = new XmlTextReader("http://www.tcmb.gov.tr/kurlar/today.xml");
+                
+               XmlTextReader rdr = new XmlTextReader("http://www.tcmb.gov.tr/kurlar/today.xml");
                 // XmlTextReader nesnesini yaratıyoruz ve parametre olarak xml dokümanın urlsini veriyoruz
                 // XmlTextReader urlsi belirtilen xml dokümanlarına hızlı ve forward-only giriş imkanı sağlar.
                 XmlDocument myxml = new XmlDocument();
@@ -54,6 +47,7 @@ namespace ExchangeRates
                 XmlNodeList doviz_satis = myxml.SelectNodes("/Tarih_Date/Currency/ForexSelling");
                 XmlNodeList efektif_alis = myxml.SelectNodes("/Tarih_Date/Currency/BanknoteBuying");
                 XmlNodeList efektif_satis = myxml.SelectNodes("/Tarih_Date/Currency/BanknoteSelling");
+
                 for (int i = 0; i < 4; i++)
                 {
                     dr = dt.NewRow();
@@ -71,8 +65,8 @@ namespace ExchangeRates
                     dt.Rows.Add(dr);
                     i = i + 2;
                 }
-
                 return dt;
+
             }
             catch (Exception e)
             {
@@ -80,6 +74,20 @@ namespace ExchangeRates
                 throw;
             }
 
+        }
+
+
+        public void TableCreate()
+        {
+
+            // DataTable ın satırlarını tanımlıyoruz.
+            dt.Columns.Add(new DataColumn("Adı", typeof(string)));
+            dt.Columns.Add(new DataColumn("Kod", typeof(string)));
+            dt.Columns.Add(new DataColumn("Döviz alış", typeof(string)));
+            dt.Columns.Add(new DataColumn("Döviz satış", typeof(string)));
+            dt.Columns.Add(new DataColumn("Efektif alış", typeof(string)));
+            dt.Columns.Add(new DataColumn("Efektif Satış", typeof(string)));
+           
         }
 
         private void tmr_Refresh_Tick(object sender, EventArgs e)
@@ -93,7 +101,7 @@ namespace ExchangeRates
             try
             {
                 Timer tmr = new Timer();
-                tmr.Interval = (60 * 5 * 1000);//5 sec
+                tmr.Interval = (60 * 1 * 1000);//5 sec
                 tmr.Tick += new EventHandler(tmr_Refresh_Tick);
                 tmr.Start();
             }
@@ -105,5 +113,7 @@ namespace ExchangeRates
 
 
         }
+
+       
     }
 }
